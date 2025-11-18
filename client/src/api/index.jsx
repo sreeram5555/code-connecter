@@ -1,12 +1,12 @@
-import axios from "axios"
+    import axios from "axios"
 
-const pistonBaseUrl = "https://emkc.org/api/v2/piston"
+    const pistonBaseUrl = "https://emkc.org/api/v2/piston"
 
-const instance = axios.create({
-    baseURL: pistonBaseUrl,
-    headers: {
-        "Content-Type": "application/json",
-    },
-})
+    const instance = axios.create({
+        baseURL: pistonBaseUrl,
+        headers: {
+            "Content-Type": "application/json",
+        },
+    })
 
-export default instance
+    export default instance

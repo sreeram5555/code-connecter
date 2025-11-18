@@ -17,7 +17,7 @@ function ChatList() {
         setLastScrollHeight(e.target.scrollTop)
     }
 
-    // Scroll to bottom when messages change
+    // Scroll to bottom when messagaes change
     useEffect(() => {
         messagesContainerRef.current.scrollTop =
             messagesContainerRef.current.scrollHeight

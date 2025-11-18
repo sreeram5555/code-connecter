@@ -10,6 +10,8 @@ import { createContext, useState } from "react"
 import { IoSettingsOutline } from "react-icons/io5"
 import { LuFiles } from "react-icons/lu"
 import { PiChats, PiPlay, PiUsers } from "react-icons/pi"
+import AnalysisTab from "@/components/tabs/AnalysisTab"  // Add import
+import { TbRobot } from "react-icons/tb"
 
 const TabContext = createContext()
 
@@ -23,6 +25,7 @@ function TabContextProvider({ children }) {
         [TABS.SETTINGS]: <SettingsTab />,
         [TABS.CHATS]: <ChatsTab />,
         [TABS.RUN]: <RunTab />,
+           [TABS.ANALYSIS]: <AnalysisTab />, 
     })
     const tabIcons = {
         [TABS.FILES]: <LuFiles size={28} />,
@@ -30,6 +33,7 @@ function TabContextProvider({ children }) {
         [TABS.SETTINGS]: <IoSettingsOutline size={28} />,
         [TABS.CHATS]: <PiChats size={30} />,
         [TABS.RUN]: <PiPlay size={28} />,
+        [TABS.ANALYSIS]: <TbRobot size={28} />, 
     }
 
     return (

@@ -102,3 +102,657 @@ select {
         transform: rotate(10deg);
     }
 }
+
+/* styles/globals.css - Make sure this is very specific */
+
+/* For the extension-based approach */
+.highlighted-line {
+    background-color: #fff9c4 !important;
+    border-left: 4px solid #fbc02d !important;
+    padding-left: 8px !important;
+}
+
+/* For the DOM-based approach */
+/* styles/globals.css - Enhanced line highlighting */
+
+/* Full line highlighting for CodeMirror 6 */
+/* styles/globals.css - NUCLEAR OPTION */
+
+/* Nuclear option for line highlighting */
+.cm-line-highlighted {
+    background: linear-gradient(90deg, rgba(255,255,0,0.3) 0%, rgba(255,255,0,0.1) 100%) !important;
+    border-left: 8px solid #ffd600 !important;
+    padding-left: 12px !important;
+    margin-left: -4px !important;
+    box-shadow: inset 0 0 0 1px rgba(255,214,0,0.3) !important;
+}
+
+/* Override everything with maximum specificity */
+.cm-editor .cm-content .cm-line.cm-line-highlighted {
+    background-color: #fff9c4 !important;
+    border-left: 8px solid #fbc02d !important;
+    padding-left: 12px !important;
+    margin: 0 !important;
+}
+
+/* Force it to work */
+.cm-scroller .cm-content .cm-line.cm-line-highlighted {
+    background: yellow !important;
+    border-left: 8px solid orange !important;
+}
+
+/* Make it very obvious */
+.cm-line-highlighted {
+    background: #ffff88 !important;
+    border-left: 8px solid #ff9900 !important;
+    padding-left: 15px !important;
+    font-weight: bold !important;
+}
+/* Add to your index.css */
+.cm-line-highlighted {
+    background: linear-gradient(90deg, rgba(251, 192, 45, 0.2) 0%, transparent 100%) !important;
+    border-left: 4px solid #fbc02d !important;
+    margin-left: -4px !important;
+    padding-left: 8px !important;
+}
+
+/* Analysis tab specific styles */
+.ai-code-panel {
+    border-left: 3px solid;
+}
+
+.gemini-highlight { border-left-color: #4285f4; }
+.chatgpt-highlight { border-left-color: #10a37f; }
+.claude-highlight { border-left-color: #d946ef; }
+
+/* Add to your index.css */
+.cm-line-highlighted {
+    background: linear-gradient(90deg, rgba(251, 192, 45, 0.3) 0%, transparent 100%) !important;
+    border-left: 4px solid #fbc02d !important;
+    margin-left: -8px !important;
+    padding-left: 12px !important;
+    position: relative;
+}
+
+.cm-line-highlighted::before {
+    content: "🎯";
+    position: absolute;
+    left: -20px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 12px;
+}
+/* Add to your index.css - Make these styles very strong */
+.cm-line-highlighted {
+    background: linear-gradient(90deg, rgba(251, 192, 45, 0.4) 0%, rgba(251, 192, 45, 0.1) 100%) !important;
+    border-left: 6px solid #fbc02d !important;
+    padding-left: 12px !important;
+    margin-left: -8px !important;
+    box-shadow: inset 0 0 0 1px rgba(251, 192, 45, 0.3) !important;
+}
+
+/* Nuclear option - override everything */
+.cm-editor .cm-line.cm-line-highlighted {
+    background: rgba(255, 235, 59, 0.3) !important;
+    border-left: 6px solid #ffd600 !important;
+    padding-left: 12px !important;
+    margin: 0 !important;
+}
+
+.cm-scroller .cm-content .cm-line.cm-line-highlighted {
+    background: rgba(255, 235, 59, 0.4) !important;
+    border-left: 6px solid #ffa000 !important;
+    padding-left: 12px !important;
+}
+
+/* Force the highlight to be very visible */
+.cm-line-highlighted::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: #fbc02d;
+    z-index: 5;
+}
+
+/* Add to your index.css - SUPER AGGRESSIVE HIGHLIGHTING */
+.cm-line-highlighted {
+    background: rgba(255, 235, 59, 0.5) !important;
+    border-left: 8px solid #ff9800 !important;
+    padding-left: 15px !important;
+    margin-left: -10px !important;
+    box-shadow: inset 0 0 10px rgba(255, 152, 0, 0.3) !important;
+}
+
+/* Nuclear override for all possible CodeMirror contexts */
+.cm-editor .cm-content .cm-line.cm-line-highlighted,
+.cm-editor .cm-line.cm-line-highlighted,
+.cm-scroller .cm-content .cm-line.cm-line-highlighted,
+.cm-scroller .cm-line.cm-line-highlighted,
+.cm-content .cm-line.cm-line-highlighted {
+    background: linear-gradient(90deg, rgba(255, 235, 59, 0.6) 0%, rgba(255, 235, 59, 0.3) 100%) !important;
+    border-left: 8px solid #ff5722 !important;
+    padding-left: 15px !important;
+    margin: 0 !important;
+    position: relative;
+}
+
+/* Add a pulsing animation to make it very obvious */
+.cm-line-highlighted {
+    animation: pulse-highlight 2s infinite;
+}
+
+@keyframes pulse-highlight {
+    0% { background-color: rgba(255, 235, 59, 0.6); }
+    50% { background-color: rgba(255, 235, 59, 0.8); }
+    100% { background-color: rgba(255, 235, 59, 0.6); }
+}
+
+/* Force the highlight marker */
+.cm-line-highlighted::before {
+    content: "🔸";
+    position: absolute;
+    left: -25px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 14px;
+    z-index: 100;
+}
+
+/* Add to your index.css - FULL WIDTH HIGHLIGHTING */
+.cm-line-highlighted-full {
+    background: linear-gradient(90deg, rgba(255, 235, 59, 0.4) 0%, rgba(255, 235, 59, 0.2) 100%) !important;
+    border-left: 8px solid #ff9800 !important;
+    border-right: 2px solid rgba(255, 152, 0, 0.3) !important;
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+    margin-left: -15px !important;
+    margin-right: -15px !important;
+    width: 100% !important;
+    display: block !important;
+    position: relative !important;
+    box-shadow: inset 0 0 0 1px rgba(255, 152, 0, 0.2) !important;
+}
+
+/* Nuclear override for all possible CodeMirror contexts - FULL WIDTH */
+.cm-editor .cm-content .cm-line.cm-line-highlighted-full,
+.cm-editor .cm-line.cm-line-highlighted-full,
+.cm-scroller .cm-content .cm-line.cm-line-highlighted-full,
+.cm-scroller .cm-line.cm-line-highlighted-full,
+.cm-content .cm-line.cm-line-highlighted-full {
+    background: linear-gradient(90deg, rgba(255, 235, 59, 0.5) 0%, rgba(255, 235, 59, 0.3) 100%) !important;
+    border-left: 8px solid #ff5722 !important;
+    border-right: 2px solid rgba(255, 87, 34, 0.3) !important;
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+    margin: 0 -15px !important;
+    width: calc(100% + 30px) !important;
+    display: block !important;
+    position: relative !important;
+    min-height: 100% !important;
+}
+
+/* Force the entire line container to expand */
+.cm-line {
+    position: relative !important;
+}
+
+/* Add a pulsing animation to make it very obvious */
+.cm-line-highlighted-full {
+    animation: pulse-highlight-full 2s infinite;
+}
+
+@keyframes pulse-highlight-full {
+    0% { background-color: rgba(255, 235, 59, 0.5); }
+    50% { background-color: rgba(255, 235, 59, 0.7); }
+    100% { background-color: rgba(255, 235, 59, 0.5); }
+}
+
+/* Force the highlight marker - FULL WIDTH */
+.cm-line-highlighted-full::before {
+    content: "🎯";
+    position: absolute;
+    left: -25px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 14px;
+    z-index: 100;
+    background: rgba(0,0,0,0.7);
+    padding: 2px 4px;
+    border-radius: 4px;
+}
+
+/* Make sure the editor container allows full width */
+.cm-editor {
+    overflow-x: visible !important;
+}
+
+.cm-scroller {
+    overflow-x: visible !important;
+}
+
+.cm-content {
+    overflow-x: visible !important;
+    padding-right: 15px !important;
+}
+
+/* styles/globals.css - AI LINE HIGHLIGHTING */
+
+/* AI Suggested Line Highlighting */
+.cm-line-highlighted {
+    background: linear-gradient(90deg, rgba(255, 255, 0, 0.4) 0%, rgba(255, 255, 0, 0.2) 100%) !important;
+    border-left: 6px solid #fbbf24 !important;
+    padding-left: 12px !important;
+    margin-left: 0px !important;
+    position: relative !important;
+}
+
+/* Add AI indicator dot */
+.cm-line-highlighted::before {
+    content: '🤖' !important;
+    position: absolute !important;
+    left: -30px !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    font-size: 12px !important;
+    background: #f59e0b !important;
+    border-radius: 50% !important;
+    width: 20px !important;
+    height: 20px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    color: white !important;
+}
+
+/* Force override for all themes */
+.cm-editor .cm-content .cm-line.cm-line-highlighted {
+    background-color: rgba(255, 255, 0, 0.3) !important;
+    border-left: 6px solid #f59e0b !important;
+    padding-left: 12px !important;
+}
+
+/* Dark theme support */
+.cm-editor.cm-focused .cm-line.cm-line-highlighted {
+    background-color: rgba(255, 255, 0, 0.2) !important;
+}
+
+/* Make sure it spans full width */
+.cm-line.cm-line-highlighted {
+    width: 100% !important;
+}
+/* styles/globals.css - Enhanced AI Line Highlighting with Scroll Support */
+
+/* AI Suggested Line Highlighting */
+.cm-line-highlighted {
+    background: linear-gradient(90deg, 
+        rgba(255, 255, 0, 0.5) 0%, 
+        rgba(255, 255, 0, 0.3) 50%,
+        rgba(255, 255, 0, 0.1) 100%) !important;
+    border-left: 8px solid #f59e0b !important;
+    padding-left: 15px !important;
+    margin-left: 0px !important;
+    position: relative !important;
+    transition: all 0.3s ease !important;
+}
+
+/* Current active highlight during navigation */
+.cm-line-highlighted.active-highlight {
+    background: linear-gradient(90deg, 
+        rgba(255, 215, 0, 0.7) 0%, 
+        rgba(255, 215, 0, 0.4) 100%) !important;
+    border-left: 8px solid #d97706 !important;
+    box-shadow: 0 0 15px rgba(245, 158, 11, 0.5) !important;
+    animation: pulse-highlight 2s infinite !important;
+}
+
+/* Add AI indicator dot */
+.cm-line-highlighted::before {
+    content: '🤖' !important;
+    position: absolute !important;
+    left: -35px !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    font-size: 14px !important;
+    background: #f59e0b !important;
+    border-radius: 50% !important;
+    width: 24px !important;
+    height: 24px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    color: white !important;
+    z-index: 10 !important;
+}
+
+/* Pulse animation for active highlight */
+@keyframes pulse-highlight {
+    0% {
+        box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.7);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(245, 158, 11, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(245, 158, 11, 0);
+    }
+}
+
+/* Force override for all themes */
+.cm-editor .cm-content .cm-line.cm-line-highlighted {
+    background-color: rgba(255, 255, 0, 0.4) !important;
+    border-left: 8px solid #f59e0b !important;
+    padding-left: 15px !important;
+}
+
+/* Make sure it spans full width and is visible during scroll */
+.cm-line.cm-line-highlighted {
+    width: 100% !important;
+    margin-right: 0 !important;
+}
+
+/* Ensure editor has proper scroll behavior */
+.cm-editor {
+    overflow: auto !important;
+}
+
+.cm-scroller {
+    overflow: auto !important;
+    scroll-behavior: smooth !important;
+}
+
+/* styles/globals.css - Enhanced with Temporary Highlights */
+
+/* AI Suggested Line Highlighting */
+.cm-line-highlighted {
+    background: linear-gradient(90deg, 
+        rgba(255, 255, 0, 0.4) 0%, 
+        rgba(255, 255, 0, 0.2) 100%) !important;
+    border-left: 6px solid #f59e0b !important;
+    padding-left: 15px !important;
+    margin-left: 0px !important;
+    position: relative !important;
+    transition: all 0.3s ease !important;
+}
+
+/* Temporary highlight for clicked/scrolled-to lines */
+.cm-line-temporary-highlight {
+    background: linear-gradient(90deg, 
+        rgba(74, 222, 128, 0.6) 0%, 
+        rgba(74, 222, 128, 0.3) 100%) !important;
+    border-left: 6px solid #22c55e !important;
+    padding-left: 15px !important;
+    animation: temporary-pulse 3s ease-in-out !important;
+    box-shadow: 0 0 20px rgba(34, 197, 94, 0.4) !important;
+}
+
+/* Pulse animation for temporary highlight */
+@keyframes temporary-pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7);
+        background: linear-gradient(90deg, 
+            rgba(74, 222, 128, 0.8) 0%, 
+            rgba(74, 222, 128, 0.4) 100%) !important;
+    }
+    50% {
+        box-shadow: 0 0 0 10px rgba(34, 197, 94, 0.3);
+        background: linear-gradient(90deg, 
+            rgba(74, 222, 128, 0.6) 0%, 
+            rgba(74, 222, 128, 0.3) 100%) !important;
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(34, 197, 94, 0);
+        background: linear-gradient(90deg, 
+            rgba(74, 222, 128, 0.4) 0%, 
+            rgba(74, 222, 128, 0.2) 100%) !important;
+    }
+}
+
+/* Current active highlight during navigation */
+.cm-line-highlighted.active-highlight {
+    background: linear-gradient(90deg, 
+        rgba(255, 215, 0, 0.7) 0%, 
+        rgba(255, 215, 0, 0.4) 100%) !important;
+    border-left: 6px solid #d97706 !important;
+    box-shadow: 0 0 15px rgba(245, 158, 11, 0.5) !important;
+    animation: pulse-highlight 2s infinite !important;
+}
+
+/* Add AI indicator dot */
+.cm-line-highlighted::before {
+    content: '🤖' !important;
+    position: absolute !important;
+    left: -35px !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    font-size: 14px !important;
+    background: #f59e0b !important;
+    border-radius: 50% !important;
+    width: 24px !important;
+    height: 24px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    color: white !important;
+    z-index: 10 !important;
+}
+
+/* Pulse animation for active highlight */
+@keyframes pulse-highlight {
+    0% {
+        box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.7);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(245, 158, 11, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(245, 158, 11, 0);
+    }
+}
+
+/* Force override for all themes */
+.cm-editor .cm-content .cm-line.cm-line-highlighted {
+    background-color: rgba(255, 255, 0, 0.4) !important;
+    border-left: 6px solid #f59e0b !important;
+    padding-left: 15px !important;
+}
+
+/* Make sure it spans full width and is visible during scroll */
+.cm-line.cm-line-highlighted {
+    width: 100% !important;
+    margin-right: 0 !important;
+}
+
+/* Ensure editor has proper scroll behavior */
+.cm-editor {
+    overflow: auto !important;
+}
+
+.cm-scroller {
+    overflow: auto !important;
+    scroll-behavior: smooth !important;
+}
+
+/* styles/globals.css - STRONG IN-CODE HIGHLIGHTING */
+
+/* NUCLEAR OPTION FOR LINE HIGHLIGHTING - MAKES SURE IT WORKS IN CODE */
+.cm-line-highlighted {
+    background: linear-gradient(90deg, 
+        rgba(255, 255, 0, 0.6) 0%, 
+        rgba(255, 255, 0, 0.3) 100%) !important;
+    border-left: 8px solid #f59e0b !important;
+    padding-left: 15px !important;
+    margin-left: -10px !important;
+    margin-right: -10px !important;
+    padding-right: 10px !important;
+    position: relative !important;
+    z-index: 5 !important;
+}
+
+/* Add AI indicator INSIDE the code editor */
+.cm-line-highlighted::before {
+    content: '🔍' !important;
+    position: absolute !important;
+    left: -25px !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    font-size: 12px !important;
+    background: #f59e0b !important;
+    border-radius: 50% !important;
+    width: 20px !important;
+    height: 20px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    color: white !important;
+    z-index: 10 !important;
+}
+
+/* FORCE OVERRIDE EVERYTHING - NUCLEAR OPTION */
+.cm-editor .cm-content .cm-line.cm-line-highlighted {
+    background: yellow !important;
+    border-left: 8px solid orange !important;
+    padding-left: 15px !important;
+}
+
+.cm-scroller .cm-content .cm-line.cm-line-highlighted {
+    background: rgba(255, 255, 0, 0.5) !important;
+    border-left: 8px solid #f59e0b !important;
+}
+
+.cm-line.cm-line-highlighted {
+    background: rgba(255, 255, 0, 0.4) !important;
+    border-left: 8px solid #f59e0b !important;
+    padding-left: 15px !important;
+}
+
+/* Make sure it covers the entire line width */
+.cm-content .cm-line.cm-line-highlighted {
+    width: 100% !important;
+    display: block !important;
+}
+
+/* Ensure the gutter (line numbers) also gets highlighted */
+.cm-gutterElement.cm-line-highlighted {
+    background: rgba(255, 255, 0, 0.3) !important;
+    font-weight: bold !important;
+}
+@import url("tldraw/tldraw.css");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+    .tab-title {
+        @apply mb-2 w-full border-b pb-2 text-start text-lg;
+    }
+}
+
+body {
+    font-family: "Space Grotesk", sans-serif;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+
+    --sb-track-color: #3d404a;
+    --sb-thumb-color: #e1e1ffb3;
+    --sb-size: 6px;
+}
+
+::-webkit-scrollbar {
+    width: var(--sb-size);
+    height: var(--sb-size);
+}
+
+::-webkit-scrollbar-track {
+    background: var(--sb-track-color);
+    border-radius: 5px;
+    height: var(--sb-size);
+    width: var(--sb-size);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--sb-thumb-color);
+    border-radius: 5px;
+    height: var(--sb-size);
+}
+
+@supports not selector(::-webkit-scrollbar) {
+    body {
+        scrollbar-color: var(--sb-thumb-color) var(--sb-track-color);
+    }
+}
+
+@keyframes up-down {
+    0% {
+        transform: translateY(-20px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+/* Editor */
+
+.cm-editor {
+    /* Change max-height to 100% to fill the flex container */
+    height: 100%;
+    max-height: 100%;
+}
+
+.cm-editor .cm-scroller {
+    font-family: "Space Mono", monospace;
+    /* Ensure scroller fills the editor */
+    height: 100% !important;
+    min-height: 100%; 
+    overflow: auto;
+}
+
+/* Highlight Class for AI Analysis */
+.cm-similar-line {
+    background-color: rgba(57, 224, 121, 0.15); /* Greenish tint matching primary color */
+    border-left: 2px solid #39E079;
+}
+
+select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+    .cm-editor {
+        /* Mobile adjustment */
+        height: 100%;
+    }
+
+    .cm-editor .cm-scroller {
+         /* Mobile adjustment */
+        height: 100%;
+    }
+}
+
+/* Github Corner */
+
+.github-corner:hover .octo-arm {
+    animation: octocat-wave 560ms ease-in-out;
+}
+
+@keyframes octocat-wave {
+    0%,
+    100% {
+        transform: rotate(0);
+    }
+    20%,
+    60% {
+        transform: rotate(-25deg);
+    }
+    40%,
+    80% {
+        transform: rotate(10deg);
+    }
+}

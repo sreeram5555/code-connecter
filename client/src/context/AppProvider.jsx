@@ -6,6 +6,8 @@ import { SettingContextProvider } from "./SettingContext.jsx"
 import { SocketProvider } from "./SocketContext.jsx"
 import { TabContextProvider } from "./TabContext.jsx"
 import { RunCodeContextProvider } from "./RunCodeContext.jsx"
+import { AnalysisContextProvider } from "./AnalysisContext.jsx"
+
 
 function AppProvider({ children }) {
     return (
@@ -16,7 +18,9 @@ function AppProvider({ children }) {
                         <FileContextProvider>
                             <RunCodeContextProvider>
                                 <ChatContextProvider>
-                                    {children}
+                                    <AnalysisContextProvider>  {/* Add this */}
+                                        {children}
+                                    </AnalysisContextProvider>
                                 </ChatContextProvider>
                             </RunCodeContextProvider>
                         </FileContextProvider>

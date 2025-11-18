@@ -8,6 +8,7 @@ import STATES from "@/utils/states"
 import TABS from "@/utils/tabs"
 import { IoCodeSlash } from "react-icons/io5"
 import { MdOutlineDraw } from "react-icons/md"
+import { FaUser } from "react-icons/fa"
 
 function Sidebar() {
     const { activeTab, isSidebarOpen, tabComponents, tabIcons } = useTab()
@@ -50,7 +51,9 @@ function Sidebar() {
                         <IoCodeSlash size={30} />
                     )}
                 </button>
-            </div>
+
+<TabButton tabName={TABS.ANALYSIS} icon={tabIcons[TABS.ANALYSIS]} />            </div>
+
             <div
                 className="absolute left-0 top-0 z-20 w-full flex-grow flex-col bg-dark md:static md:w-[300px]"
                 style={isSidebarOpen ? {} : { display: "none" }}

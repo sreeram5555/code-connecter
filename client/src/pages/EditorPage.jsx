@@ -1,3 +1,4 @@
+// pages/EditorPage.jsx
 import SplitterComponent from "@/components/SplitterComponent"
 import ConnectionStatusPage from "@/components/connection/ConnectionStatusPage"
 import EditorComponent from "@/components/editor/EditorComponent"
