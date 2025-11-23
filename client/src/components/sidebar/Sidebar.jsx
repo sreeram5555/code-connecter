@@ -52,7 +52,7 @@ function Sidebar() {
                     )}
                 </button>
 
-<TabButton tabName={TABS.ANALYSIS} icon={tabIcons[TABS.ANALYSIS]} />            </div>
+           </div>
 
             <div
                 className="absolute left-0 top-0 z-20 w-full flex-grow flex-col bg-dark md:static md:w-[300px]"

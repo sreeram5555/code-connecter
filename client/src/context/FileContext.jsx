@@ -277,16 +277,16 @@ const updateSimilarLines = (lines) => {
 // In your FileContext.js - temporarily change to:
 // In your FileContext.js - update the initial state with AI lines
 const [highlightedLines, setHighlightedLines] = useState([1, 2, 3, 4, 7, 10, 11, 12, 13, 14, 15, 16, 17, 21, 22, 23, 24, 25, 26]);    // Function to highlight specific lines
-    const highlightLines = (lineNumbers) => {
-        console.log('Highlighting lines:', lineNumbers);
-        setHighlightedLines(Array.isArray(lineNumbers) ? lineNumbers : [lineNumbers])
-    }
+// In your FileContext.jsx, make sure highlightLines and clearHighlights are memoized
+const highlightLines = useCallback((lines) => {
+    console.log('Highlighting lines:', lines);
+    setHighlightedLines(lines);
+}, []);
 
-    // Function to clear all highlights
-    const clearHighlights = () => {
-        console.log('Clearing all highlights');
-        setHighlightedLines([])
-    }
+const clearHighlights = useCallback(() => {
+    console.log('Clearing all highlights');
+    setHighlightedLines([]);
+}, []);
 
     // Function to add a single line highlight
     const addLineHighlight = (lineNumber) => {

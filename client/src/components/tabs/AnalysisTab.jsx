@@ -1,198 +1,15 @@
-// // components/tabs/AnalysisTab.jsx
-// import useAnalysis from "@/hooks/useAnalysis"
-// import useFileSystem from "@/hooks/useFileSystem"
-// import useWindowDimensions from "@/hooks/useWindowDimensions"
-// import { useState, useEffect } from "react"
-// import { TbRobot } from "react-icons/tb"
-
-// function AnalysisTab() {
-//     const { analysisResult, isAnalyzing } = useAnalysis()
-//     const { tabHeight } = useWindowDimensions()
-//     const { highlightLines, clearHighlights } = useFileSystem()
-//     const [activeAITab, setActiveAITab] = useState("gemini")
-
-//     useEffect(() => {
-//         if (analysisResult?.similar_lines) {
-//             // Extract all user line numbers that have matches
-//             const allUserLines = new Set()
-            
-//             Object.values(analysisResult.similar_lines).forEach(comparison => {
-//                 comparison.forEach(match => {
-//                     allUserLines.add(match.user_line_number)
-//                 })
-//             })
-            
-//             const linesArray = Array.from(allUserLines)
-//             console.log('🎯 Highlighting user lines:', linesArray)
-//             highlightLines(linesArray)
-//         }
-
-//         return () => {
-//             clearHighlights()
-//         }
-//     }, [analysisResult, highlightLines, clearHighlights])
-
-//     if (isAnalyzing) {
-//         return (
-//             <div className="flex flex-col items-center justify-center p-4" style={{ height: tabHeight }}>
-//                 <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary mb-4"></div>
-//                 <p className="text-white">Analyzing your code with AI...</p>
-//             </div>
-//         )
-//     }
-
-//     if (!analysisResult) {
-//         return (
-//             <div className="flex flex-col items-center justify-center p-4 text-center" style={{ height: tabHeight }}>
-//                 <TbRobot size={48} className="text-gray-500 mb-4" />
-//                 <h2 className="text-xl text-white mb-2">AI Code Analysis</h2>
-//                 <p className="text-gray-400">Run your code first to see AI-powered analysis and comparisons</p>
-//             </div>
-//         )
-//     }
-
-//     const getAICode = (aiName) => {
-//         return analysisResult.generated_codes[aiName] || "No code generated"
-//     }
-
-//     const getSimilarLines = (aiName) => {
-//         return analysisResult.similar_lines[`${aiName}_vs_user`] || []
-//     }
-
-//     const aiModels = [
-//         { id: "gemini", name: "Gemini", color: "border-blue-500" },
-//         { id: "chatgpt", name: "ChatGPT", color: "border-green-500" },
-//         { id: "claude", name: "Claude", color: "border-purple-500" }
-//     ]
-
-//     return (
-//         <div className="flex flex-col p-4" style={{ height: tabHeight }}>
-//             <h1 className="tab-title mb-4">AI Code Analysis</h1>
-            
-//             {/* Main Content Grid */}
-//             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 flex-grow">
-//                 {/* User Code Panel */}
-//                 <div className="bg-darkHover rounded-lg p-4 flex flex-col">
-//                     <h3 className="text-lg font-semibold text-white mb-3 flex items-center">
-//                         <span className="w-2 h-2 bg-primary rounded-full mr-2"></span>
-//                         Your Code
-//                     </h3>
-//                     <div className="bg-dark rounded p-3 flex-grow overflow-auto">
-//                         <pre className="text-sm text-gray-200 whitespace-pre-wrap font-mono">
-//                             {analysisResult.user_code}
-//                         </pre>
-//                     </div>
-//                 </div>
-
-//                 {/* AI Code Panel */}
-//                 <div className="bg-darkHover rounded-lg p-4 flex flex-col">
-//                     <h3 className="text-lg font-semibold text-white mb-3 flex items-center">
-//                         <span className="w-2 h-2 bg-secondary rounded-full mr-2"></span>
-//                         AI Generated Code
-//                     </h3>
-                    
-//                     {/* AI Model Tabs */}
-//                     <div className="flex space-x-1 mb-3 bg-dark rounded p-1">
-//                         {aiModels.map((model) => (
-//                             <button
-//                                 key={model.id}
-//                                 onClick={() => setActiveAITab(model.id)}
-//                                 className={`flex-1 py-2 px-3 rounded text-sm font-medium transition-all ${
-//                                     activeAITab === model.id
-//                                         ? 'bg-primary text-black'
-//                                         : 'text-gray-300 hover:text-white'
-//                                 }`}
-//                             >
-//                                 {model.name}
-//                             </button>
-//                         ))}
-//                     </div>
-
-//                     {/* AI Code Display */}
-//                     <div className="bg-dark rounded p-3 flex-grow overflow-auto relative">
-//                         <div className={`absolute top-0 left-0 w-1 h-full ${aiModels.find(m => m.id === activeAITab)?.color.replace('border', 'bg')}`}></div>
-//                         <pre className="text-sm text-gray-200 whitespace-pre-wrap font-mono pl-3">
-//                             {getAICode(activeAITab)}
-//                         </pre>
-//                     </div>
-
-//                     {/* Similar Lines Info */}
-//                     <div className="mt-3 p-3 bg-dark rounded">
-//                         <h4 className="text-sm font-semibold text-white mb-2">
-//                             Similar Lines Found: {getSimilarLines(activeAITab).length}
-//                         </h4>
-//                         <div className="text-xs text-gray-400 space-y-1 max-h-20 overflow-y-auto">
-//                             {getSimilarLines(activeAITab).map((match, index) => (
-//                                 <div key={index} className="flex justify-between">
-//                                     <span>Line {match.user_line_number} ↔ {match.ai_line_number}</span>
-//                                     <code className="text-primary">{match.line_content.trim()}</code>
-//                                 </div>
-//                             ))}
-//                         </div>
-//                     </div>
-//                 </div>
-//             </div>
-
-//             {/* Summary */}
-//             <div className="mt-4 p-4 bg-darkHover rounded-lg">
-//                 <h3 className="text-lg font-semibold text-white mb-2">Analysis Summary</h3>
-//                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
-//                     {aiModels.map((model) => (
-//                         <div key={model.id} className="bg-dark rounded p-3">
-//                             <div className="flex justify-between items-center mb-2">
-//                                 <span className="font-medium text-white">{model.name}</span>
-//                                 <span className="text-xs px-2 py-1 bg-darkHover rounded">
-//                                     {getSimilarLines(model.id).length} matches
-//                                 </span>
-//                             </div>
-//                             <p className="text-gray-400 text-xs">
-//                                 {getSimilarLines(model.id).length > 0 
-//                                     ? "Multiple code patterns matched"
-//                                     : "No significant matches found"
-//                                 }
-//                             </p>
-//                         </div>
-//                     ))}
-//                 </div>
-//             </div>
-//         </div>
-//     )
-// }
-
-// export default AnalysisTab
-// components/tabs/AnalysisTab.jsx
 import useAnalysis from "@/hooks/useAnalysis"
 import useFileSystem from "@/hooks/useFileSystem"
 import useWindowDimensions from "@/hooks/useWindowDimensions"
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import { TbRobot } from "react-icons/tb"
 
 function AnalysisTab() {
     const { analysisResult, isAnalyzing } = useAnalysis()
     const { tabHeight } = useWindowDimensions()
-    const { highlightLines, clearHighlights } = useFileSystem()
     const [activeAITab, setActiveAITab] = useState("gemini")
 
-    useEffect(() => {
-        if (analysisResult?.similar_lines) {
-            // Extract all user line numbers that have matches
-            const allUserLines = new Set()
-            
-            Object.values(analysisResult.similar_lines).forEach(comparison => {
-                comparison.forEach(match => {
-                    allUserLines.add(match.user_line_number)
-                })
-            })
-            
-            const linesArray = Array.from(allUserLines)
-            console.log('🎯 Highlighting user lines:', linesArray)
-            highlightLines(linesArray)
-        }
-
-        return () => {
-            clearHighlights()
-        }
-    }, [analysisResult, highlightLines, clearHighlights])
+    // REMOVED ALL HIGHLIGHT LOGIC - Let Editor handle it
 
     if (isAnalyzing) {
         return (
@@ -227,6 +44,10 @@ function AnalysisTab() {
         { id: "claude", name: "Claude", color: "border-purple-500", bgColor: "bg-purple-500" }
     ]
 
+    // Calculate total highlighted lines count
+    const totalHighlightedLines = analysisResult.similar_lines ? 
+        new Set(Object.values(analysisResult.similar_lines).flat().map(m => m.user_line_number)).size : 0
+
     return (
         <div className="flex flex-col p-4" style={{ height: tabHeight }}>
             <h1 className="tab-title mb-4">AI Code Analysis</h1>
@@ -241,9 +62,7 @@ function AnalysisTab() {
                             Your Code
                         </h3>
                         <span className="text-xs px-2 py-1 bg-primary text-black rounded-full font-medium">
-                            {analysisResult.similar_lines && 
-                                new Set(Object.values(analysisResult.similar_lines).flat().map(m => m.user_line_number)).size
-                            } lines highlighted
+                            {totalHighlightedLines} lines highlighted
                         </span>
                     </div>
                     <div className="bg-dark rounded p-4 flex-grow overflow-auto">
